@@ -92,7 +92,7 @@ We will begin wit making a plot of Critics score against the Audience score.
 ggplot(movies, aes(x = critics_score, y = audience_score))+geom_point(col = "maroon", pch = 19)+labs(title = "Critics Score v/s Audience Score", x = "Cirtics Score", y = "Audience Score")
 ```
 
-![](reg_model_project_files/figure-html/unnamed-chunk-2-1.png)<!-- -->
+![](reg_model_project_files/unnamed-chunk-2-1.png)<!-- -->
 
 In the graph above we observe that there is somewhat a linear relationship between critics Score and the audience score.
 
@@ -104,11 +104,11 @@ $H_A:$ Critics score is not a significant predictor of the Audience score.
 
 Mathematically,
 
-$H_0:\beta_1=0$
+![a](https://latex.codecogs.com/gif.download?H_0%3A%5Cbeta_1%3D0)
 
-$H_A:\beta_1 \neq0$
+![b](https://latex.codecogs.com/gif.download?H_A%3A%5Cbeta_1%20%5Cneq0)
 
-Here $\beta_1$ is the slope of the predictor variable `critics_score`.
+Here ![c](https://latex.codecogs.com/gif.download?%5Cbeta_1) is the slope of the predictor variable `critics_score`.
 
 
 ```r
@@ -136,7 +136,7 @@ summary(lm(audience_score~critics_score, movies))
 ## F-statistic: 638.7 on 1 and 649 DF,  p-value: < 2.2e-16
 ```
 
-Conducting the test at $95\%$ significance level, the $p$-value is less than $0.05$. We reject the null hypothesis and conclude that Critcs score is a significant predictor of the Audience score.
+Conducting the test at ![d](https://latex.codecogs.com/gif.download?95%5C%25) significance level, the $p$-value is less than $0.05$. We reject the null hypothesis and conclude that Critcs score is a significant predictor of the Audience score.
 
 ***
 
@@ -147,7 +147,7 @@ Next we make a density plot to study the relationship between Oscar nomination s
 ggplot(movies, aes(x = audience_score))+geom_density(aes(fill = best_pic_nom, alpha = 0.4))+labs(title = "Density plot of Audience Score", x = "Audience Score", y = "Density")
 ```
 
-![](reg_model_project_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
+![](reg_model_project_files/unnamed-chunk-4-1.png)<!-- -->
 
 The red density plot gives us the distribution of audience scores for movies which are not Oscar nominated. Whereas the turquoise green density plot is the distribution of audience scores for Oscar nominated movies. We observe that Oscar nominated movies have higher audience scores. But is this diference statistically significant? We conduct a hypothesis test to find out.
 
@@ -192,7 +192,7 @@ We will now try to study which genre types tend to be more popular.
 ggplot(movies, aes(x = genre, y = audience_score))+geom_boxplot(fill = "maroon", alpha = 0.5)+labs(title  = "Genre v/s Audience Score", x = "Genre", y = "Audience Score")+theme(axis.text.x = element_text(angle = 90))
 ```
 
-![](reg_model_project_files/figure-html/unnamed-chunk-6-1.png)<!-- -->
+![](reg_model_project_files/unnamed-chunk-6-1.png)<!-- -->
 
 Here we make a minute observation that movies with genere type Documentary and Musical & Performing Arts have much higher audience scores. This shows that the audience has a very high liking towards movies with certain genres than others.
 
@@ -210,7 +210,7 @@ We will again make a boxplot to see the distribution spread of audience scores f
 ggplot(movies, aes(x = new_genre, y = audience_score))+geom_boxplot(fill = "maroon", alpha = 0.5)+labs(title  = "Grouped Genre v/s Audience Score", x = "Grouped Genre", y = "Audience Score")+scale_x_discrete(labels = c("Documentary, Musical & P.A.", "Other"))
 ```
 
-![](reg_model_project_files/figure-html/unnamed-chunk-8-1.png)<!-- -->
+![](reg_model_project_files/unnamed-chunk-8-1.png)<!-- -->
 
 We now test whether the new vairiable is a significant predictor of the audience score.
 
@@ -256,7 +256,7 @@ Next we see if the Oscar status of the director of the movie has an effect on th
 ggplot(movies, aes(x = best_dir_win, y = audience_score))+geom_boxplot(fill = "maroon", alpha = 0.5)+labs(title = "Director's Oscar status v/s Audience Score", x = "Has the Director won an Oscar", y = "Audience Score")+scale_x_discrete(labels = c("No","Yes"))
 ```
 
-![](reg_model_project_files/figure-html/unnamed-chunk-10-1.png)<!-- -->
+![](reg_model_project_files/unnamed-chunk-10-1.png)<!-- -->
 
 We observe a slightly high audience score for movies having Oscar winning directors. But is this difference merely due to chance or is it significant. We test it out.
 
@@ -302,7 +302,7 @@ actress<-ggplot(movies, aes(x = best_actress_win, y = audience_score))+geom_boxp
 plot_grid(actor, actress, labels = "AUTO")
 ```
 
-![](reg_model_project_files/figure-html/unnamed-chunk-12-1.png)<!-- -->
+![](reg_model_project_files/unnamed-chunk-12-1.png)<!-- -->
 
 We observe that the audience scores for movies with Oscar winning Actors and Actresses is similar to the audience scores for movies without Oscar winning Actors and Actresses. This is a counter-intutive finding as one would always expect otherwise. Thus the Oscar status of the Actors and Actresses dont matter when it comes to audience scores.
 
