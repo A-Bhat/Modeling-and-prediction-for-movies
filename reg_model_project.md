@@ -76,7 +76,7 @@ We will find which attributes of a movie have a significant effect on the variab
 
 ## Part 3: Exploratory data analysis
 
-We will begin wit making a plot of Critics score against the Audience score. 
+We will begin wit making a plot of critics score against the audience score. 
 
 
 ```r
@@ -85,13 +85,13 @@ ggplot(movies, aes(x = critics_score, y = audience_score))+geom_point(col = "mar
 
 ![](reg_model_project_files/unnamed-chunk-2-1.png)<!-- -->
 
-In the graph above we observe that there is somewhat a linear relationship between critics Score and the audience score.
+In the graph above we observe that there is somewhat a linear relationship between critics score and the audience score.
 
-We will conduct a hypothesis test to see if Critics score is a significant predictor of Audience score.
+We will conduct a hypothesis test to see if critics score is a significant predictor of audience score.
 
-![](http://www.sciweavers.org/upload/Tex2Img_1540383616/render.png) Critics score is a significant predictor of the Audience score.
+![](http://www.sciweavers.org/upload/Tex2Img_1540383616/render.png): Critics score is a significant predictor of the Audience score.
 
-![](http://www.sciweavers.org/upload/Tex2Img_1540383679/render.png) Critics score is not a significant predictor of the Audience score.
+![](http://www.sciweavers.org/upload/Tex2Img_1540383679/render.png): Critics score is not a significant predictor of the Audience score.
 
 Mathematically,
 
@@ -127,7 +127,7 @@ summary(lm(audience_score~critics_score, movies))
 ## F-statistic: 638.7 on 1 and 649 DF,  p-value: < 2.2e-16
 ```
 
-Conducting the test at ![](http://www.sciweavers.org/upload/Tex2Img_1540383394/render.png) significance level, the *p*-value is less than *0.05*. We reject the null hypothesis and conclude that Critcs score is a significant predictor of the Audience score.
+Conducting the test at ![](http://www.sciweavers.org/upload/Tex2Img_1540383394/render.png) significance level, the *p*-value is less than *0.05*. We reject the null hypothesis and conclude that critcs score is a significant predictor of the Audience score.
 
 ***
 
@@ -540,13 +540,13 @@ The following is the linear equation predicting `audience_score`:
 
 * **Intercept**: The model priedicts that a movie-
 
-   1. With $0$ critics score
+   1. With *0* critics score
    2. Which has not been nominated for Oscars
    3. Which has a genre other than Documentary or Musical & Perfroming arts
 
 will get an audience score of *43.42*, this score does not make much sense though, as this is an extrapolation of the model. Which is usually not recommended.
 
-* **Slope of `critics_score`**: All else held constant, for ever unit increase in the critics score, the audience score inncreases by $0.46$ units.
+* **Slope of `critics_score`**: All else held constant, for ever unit increase in the critics score, the audience score inncreases by *0.46* units.
 
 * **Solpe of `best_pic_nom`**: All else held constant, for movies with an Oscar nomination the audience score is *10.45* units higher.
 
