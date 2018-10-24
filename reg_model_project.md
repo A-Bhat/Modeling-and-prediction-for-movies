@@ -1,13 +1,4 @@
----
-title: "Modeling and prediction for movies"
-output: 
-  html_document: 
-    fig_height: 4
-    highlight: pygments
-    theme: spacelab
-    keep_md: true
----
-
+# Modeling and prediction for movies
 ## Introduction:
 A dataset obtained from the IMDb and Rotten Tomatoes website. It consists of a random sample of movies and various attributes related to the movie. Our aim is to identify the attributes of a movie which make them popular among the audience and also make a linear model to predict the popularity of the movie.
 
@@ -98,17 +89,17 @@ In the graph above we observe that there is somewhat a linear relationship betwe
 
 We will conduct a hypothesis test to see if Critics score is a significant predictor of Audience score.
 
-$H_0:$ Critics score is a significant predictor of the Audience score.
+![](http://www.sciweavers.org/upload/Tex2Img_1540383616/render.png) Critics score is a significant predictor of the Audience score.
 
-$H_A:$ Critics score is not a significant predictor of the Audience score.
+![](http://www.sciweavers.org/upload/Tex2Img_1540383679/render.png) Critics score is not a significant predictor of the Audience score.
 
 Mathematically,
 
-![a](https://latex.codecogs.com/gif.download?H_0%3A%5Cbeta_1%3D0)
+![](http://www.sciweavers.org/upload/Tex2Img_1540383222/render.png)
 
-![b](https://latex.codecogs.com/gif.download?H_A%3A%5Cbeta_1%20%5Cneq0)
+![](http://www.sciweavers.org/upload/Tex2Img_1540383319/render.png)
 
-Here ![c](https://latex.codecogs.com/gif.download?%5Cbeta_1) is the slope of the predictor variable `critics_score`.
+Here ![](http://www.sciweavers.org/upload/Tex2Img_1540383459/render.png) is the slope of the predictor variable `critics_score`.
 
 
 ```r
@@ -136,7 +127,7 @@ summary(lm(audience_score~critics_score, movies))
 ## F-statistic: 638.7 on 1 and 649 DF,  p-value: < 2.2e-16
 ```
 
-Conducting the test at ![d](https://latex.codecogs.com/gif.download?95%5C%25) significance level, the $p$-value is less than $0.05$. We reject the null hypothesis and conclude that Critcs score is a significant predictor of the Audience score.
+Conducting the test at ![](http://www.sciweavers.org/upload/Tex2Img_1540383394/render.png) significance level, the *p*-value is less than *0.05*. We reject the null hypothesis and conclude that Critcs score is a significant predictor of the Audience score.
 
 ***
 
@@ -151,9 +142,9 @@ ggplot(movies, aes(x = audience_score))+geom_density(aes(fill = best_pic_nom, al
 
 The red density plot gives us the distribution of audience scores for movies which are not Oscar nominated. Whereas the turquoise green density plot is the distribution of audience scores for Oscar nominated movies. We observe that Oscar nominated movies have higher audience scores. But is this diference statistically significant? We conduct a hypothesis test to find out.
 
-$H_0$: The nomination status of a movie is not a significant predictor of the audience score. i.e. $\beta_1=0$
+![](http://www.sciweavers.org/upload/Tex2Img_1540383616/render.png): The nomination status of a movie is not a significant predictor of the audience score. i.e. ![](http://www.sciweavers.org/upload/Tex2Img_1540383773/render.png)
 
-$H_A$: The nomination status of a movie is a significant predictor of the audience score. i.e. $\beta_1\neq0$
+![](http://www.sciweavers.org/upload/Tex2Img_1540383679/render.png): The nomination status of a movie is a significant predictor of the audience score. i.e. ![](http://www.sciweavers.org/upload/Tex2Img_1540383805/render.png)
 
 
 ```r
@@ -175,13 +166,13 @@ summary(lm(audience_score~best_pic_nom, movies))
 ## best_pic_nomyes  23.7586     4.2894   5.539 4.43e-08 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-## 
+## 8
 ## Residual standard error: 19.78 on 649 degrees of freedom
 ## Multiple R-squared:  0.04514,	Adjusted R-squared:  0.04367 
 ## F-statistic: 30.68 on 1 and 649 DF,  p-value: 4.425e-08
 ```
 
-Testing at $95\%$ significance level the $p$-value is less than $0.05$, hence we reject the null hypothesis and conclude that nomination status of a movie is a significant predictor of the audience score. This finding is in line with our intution that Oscar nominated movies would be much more popular and hence have a higher audience score.
+Testing at ![](http://www.sciweavers.org/upload/Tex2Img_1540383842/render.png) significance level the *p*-value is less than *0.05*, hence we reject the null hypothesis and conclude that nomination status of a movie is a significant predictor of the audience score. This finding is in line with our intution that Oscar nominated movies would be much more popular and hence have a higher audience score.
 
 ***
 
@@ -214,9 +205,9 @@ ggplot(movies, aes(x = new_genre, y = audience_score))+geom_boxplot(fill = "maro
 
 We now test whether the new vairiable is a significant predictor of the audience score.
 
-$H_0$: New Genre variable is a significant predictor of audience score. i.e. $\beta_1 = 0$
+![](http://www.sciweavers.org/upload/Tex2Img_1540383616/render.png): New Genre variable is a significant predictor of audience score. i.e. ![](http://www.sciweavers.org/upload/Tex2Img_1540383906/render.png)
 
-$H_A$: New Genre variable is not a significant predictor of audience score. i.e. $\beta_1 \neq 0$
+![](http://www.sciweavers.org/upload/Tex2Img_1540383953/render.png): New Genre variable is not a significant predictor of audience score. i.e. ![](http://www.sciweavers.org/upload/Tex2Img_1540383988/render.png)
 
 
 ```r
@@ -244,7 +235,7 @@ summary(lm(audience_score~new_genre, movies))
 ## F-statistic: 76.77 on 1 and 649 DF,  p-value: < 2.2e-16
 ```
 
-Here the $p$-value is less than $0.05$, hence we reject the null hypothesis in favour of the alternate.
+Here the *p*-value is less than *0.05*, hence we reject the null hypothesis in favour of the alternate.
 
 ***
 
@@ -286,7 +277,7 @@ summary(lm(audience_score~best_dir_win, movies))
 ## F-statistic: 5.797 on 1 and 649 DF,  p-value: 0.01634
 ```
 
-The $p$-value of the $t$- test is $0.0163$. We reject the null hypothesis at a significance level of $95\%$. Thus the Oscar status of the director is a significant predictor of the audience score.
+The *p*-value of the *t*- test is *0.0163*. We reject the null hypothesis at a significance level of ![](http://www.sciweavers.org/upload/Tex2Img_1540384058/render.png). Thus the Oscar status of the director is a significant predictor of the audience score.
 
 ***
 
@@ -312,7 +303,7 @@ We observe that the audience scores for movies with Oscar winning Actors and Act
 
 ## Part 4: Modeling
 
-For building a linear model we will use backward model selection technique with adjusted $R^2$. Below we discuss which variables should be included in the full model.
+For building a linear model we will use backward model selection technique with adjusted ![](http://www.sciweavers.org/upload/Tex2Img_1540384090/render.png). Below we discuss which variables should be included in the full model.
 
 * In the previous section we observed that `critics_score`, `best_pic_nom`, `new_genre`and `best_dir_win` were significant predictors of the variable `audience_score`.
 
@@ -358,9 +349,9 @@ summary(full_model)
 ## F-statistic: 172.6 on 4 and 646 DF,  p-value: < 2.2e-16
 ```
 
-For the above model, $R^2_{adj} = 0.5136$. We will now execute the backward model selection algorithm.
+For the above model, ![](http://www.sciweavers.org/upload/Tex2Img_1540384168/render.png). We will now execute the backward model selection algorithm.
 
-**Drop `critics_score` from the full model and observe the $R^2_{adj}$ value** :
+**Drop `critics_score` from the full model and observe the ![](http://www.sciweavers.org/upload/Tex2Img_1540384311/render.png) value** :
 
 
 ```r
@@ -393,9 +384,9 @@ summary(m1)
 ## F-statistic: 43.15 on 3 and 647 DF,  p-value: < 2.2e-16
 ```
 
-For the model without `critics_score` $R^2_{adj}=0.1629$, which is less than the $R^2_{adj}$ value for full model. So we will not drop `critics_score` from our model.
+For the model without `critics_score` ![](http://www.sciweavers.org/upload/Tex2Img_1540384197/render.png), which is less than the ![](http://www.sciweavers.org/upload/Tex2Img_1540384231/render.png) value for full model. So we will not drop `critics_score` from our model.
 
-**Drop `best_pic_nom` from the full model and observe the $R^2_{adj}$ value** :
+**Drop `best_pic_nom` from the full model and observe the ![](http://www.sciweavers.org/upload/Tex2Img_1540384311/render.png) value** :
 
 
 ```r
@@ -428,9 +419,9 @@ summary(m2)
 ## F-statistic: 223.1 on 3 and 647 DF,  p-value: < 2.2e-16
 ```
 
-For this model $R^2_{adj}=0.5062$ which is less than $R^2_{adj}$ for the full model. So we retain `bty_pic_nom` in the model.
+For this model ![](http://www.sciweavers.org/upload/Tex2Img_1540384283/render.png) which is less than ![](http://www.sciweavers.org/upload/Tex2Img_1540384231/render.png) for the full model. So we retain `bty_pic_nom` in the model.
 
-**We drop `new_genre` from the full model and observe the $R^2_{adj}$ value** :
+**We drop `new_genre` from the full model and observe the ![](http://www.sciweavers.org/upload/Tex2Img_1540384311/render.png) value** :
 
 
 ```r
@@ -463,9 +454,9 @@ summary(m3)
 ## F-statistic: 217.3 on 3 and 647 DF,  p-value: < 2.2e-16
 ```
 
-On droping the variable `new_genre` the $R^2_{adj}$ value drops in comparison with the corresponding value for the full model. Thus we cannot drop `new_genre` from the model.
+On droping the variable `new_genre` the ![](http://www.sciweavers.org/upload/Tex2Img_1540384311/render.png) value drops in comparison with the corresponding value for the full model. Thus we cannot drop `new_genre` from the model.
 
-**We drop `best_dir_win` from the full model and observe $R^2_{adj}$ value**:
+**We drop `best_dir_win` from the full model and observe ![](http://www.sciweavers.org/upload/Tex2Img_1540384311/render.png) value**:
 
 
 ```r
@@ -498,15 +489,15 @@ summary(m4)
 ## F-statistic: 230.5 on 3 and 647 DF,  p-value: < 2.2e-16
 ```
 
-The $R^2_{adj}$ value for the model without `best_dir_win` is greater than the $R^2_{adj}$ value for the full model. We thus drop `best_dir_win` from our `full_model`.
+The ![](http://www.sciweavers.org/upload/Tex2Img_1540384311/render.png) value for the model without `best_dir_win` is greater than the ![](http://www.sciweavers.org/upload/Tex2Img_1540384311/render.png) value for the full model. We thus drop `best_dir_win` from our `full_model`.
 
-We now consider `m4` as our base model with $R^2_{adj}=0.5144$ and carry out the same procedure as above. We make the following observations:
+We now consider `m4` as our base model with ![](http://www.sciweavers.org/upload/Tex2Img_1540384516/render.png) and carry out the same procedure as above. We make the following observations:
 
-* `m4` without `critics_score` yields an $R^2_{adj}$ value of $0.1575$
-* `m4` without `best_pic_nom` yields an $R^2_{adj}$ value of $0.5068$
-* `m4` without `new_genre` yields an $R^2_{adj}$ value of $0.5002$
+* `m4` without `critics_score` yields an ![](http://www.sciweavers.org/upload/Tex2Img_1540384311/render.png) value of *0.1575*
+* `m4` without `best_pic_nom` yields an ![](http://www.sciweavers.org/upload/Tex2Img_1540384311/render.png) value of *0.5068*
+* `m4` without `new_genre` yields an ![](http://www.sciweavers.org/upload/Tex2Img_1540384311/render.png) value of *0.5002*
 
-Each of these values are less than the $R^2_{adj}$ value for our base model `m4`.
+Each of these values are less than the ![](http://www.sciweavers.org/upload/Tex2Img_1540384311/render.png) value for our base model `m4`.
 Thus we do not drop any further variables and consider `m4` as our final model.
 
 
@@ -539,11 +530,11 @@ summary(final_model)
 ## F-statistic: 230.5 on 3 and 647 DF,  p-value: < 2.2e-16
 ```
 
-Our model explains $51.44\%$ the variability in `audience_score`.
+Our model explains ![](http://www.sciweavers.org/upload/Tex2Img_1540384592/render.png) the variability in `audience_score`.
 
 The following is the linear equation predicting `audience_score`:
 
-$\widehat{audience\_score} = 43.42+0.46\;critics\_score +10.45\;best\_pic\_nom:yes-8.78\;new\_genre:other$
+![](http://www.sciweavers.org/upload/Tex2Img_1540384628/render.png)
 
 ### Interpreting the Linear Model:
 
@@ -553,13 +544,13 @@ $\widehat{audience\_score} = 43.42+0.46\;critics\_score +10.45\;best\_pic\_nom:y
    2. Which has not been nominated for Oscars
    3. Which has a genre other than Documentary or Musical & Perfroming arts
 
-will get an audience score of 43.42, this score does not make much sense though, as this is an extrapolation of the model. Which is usually not recommended.
+will get an audience score of *43.42*, this score does not make much sense though, as this is an extrapolation of the model. Which is usually not recommended.
 
 * **Slope of `critics_score`**: All else held constant, for ever unit increase in the critics score, the audience score inncreases by $0.46$ units.
 
-* **Solpe of `best_pic_nom`**: All else held constant, for movies with an Oscar nomination the audience score is $10.45$ units higher.
+* **Solpe of `best_pic_nom`**: All else held constant, for movies with an Oscar nomination the audience score is *10.45* units higher.
 
-* **Slope of `new_genre`**: All else held constant, for movies with genre- Documentary or Musical & Performing Arts, the audience score is $8.78$ units higher.
+* **Slope of `new_genre`**: All else held constant, for movies with genre- Documentary or Musical & Performing Arts, the audience score is *8.78* units higher.
 
 
 ### Model Diagnostics:
@@ -614,7 +605,7 @@ The residuals are randomly scattered and there is no patterns visible. So we con
 
 ## Part 5: Prediction
 
-We will predict the audience score of the movie Hell or High Water, an Oscar nominated movie released in 2016 which got an audience score of $88\%$ on Rotten Tomatoes.
+We will predict the audience score of the movie Hell or High Water, an Oscar nominated movie released in 2016 which got an audience score of ![](http://www.sciweavers.org/upload/Tex2Img_1540384691/render.png) on Rotten Tomatoes.
 
 The movie details are as follows:
 
@@ -644,7 +635,7 @@ predict(final_model, movie_info)
 
 The prediction made by the linear model is pretty close to the actual audience score on Rotten Tomatoes.
 
-Next we make a $90\%$ prediction interval around this prediction, which will
+Next we make a ![](http://www.sciweavers.org/upload/Tex2Img_1540384717/render.png) prediction interval around this prediction, which will
 provide a measure of uncertainty around the prediction.
 
 
@@ -658,8 +649,8 @@ predict(final_model, movie_info, interval = "prediction", level = 0.90)
 ```
 
 
-Hence, the model predicts, with 90% confidence, that a movie with a critics score of 86, having an Oscar nomiation for best movie and whose genre is other than Documentary or Musical & PA is expected to have an audience score between 60.91 
-and 108.38. 
+Hence, the model predicts, with *90%* confidence, that a movie with a critics score of *86*, having an Oscar nomiation for best movie and whose genre is other than Documentary or Musical & PA is expected to have an audience score between *60.91* 
+and *108.38*. 
 
 **Reference**: The data for the movie was obtained from the website of Rotten Tomatoes.
 
