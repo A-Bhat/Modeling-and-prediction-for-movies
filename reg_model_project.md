@@ -564,7 +564,7 @@ We will check whether all the conditions for a linear model are satisfied. In th
 ggplot(final_model, aes(x = movies$critics_score, y = .resid))+geom_point(col = "maroon")+geom_hline(yintercept = 0, lty = 2)+labs(title = "Critics score v/s Residuals", x = "Critics scores", y = "Residuals")
 ```
 
-![](reg_model_project_files/figure-html/unnamed-chunk-19-1.png)<!-- -->
+![](reg_model_project_files/unnamed-chunk-19-1.png)<!-- -->
 
 There is random scatter around the line passing through $0$. Hence audience score and the critics score are linearly related.
 
@@ -575,7 +575,7 @@ There is random scatter around the line passing through $0$. Hence audience scor
 ggplot(final_model, aes(x = .fitted, y = .resid))+geom_point(col = "maroon")+geom_hline(yintercept = 0, lty = 2)+labs(title = "Fitted Values v/s Residuals", x = "Fitted Values", y = "Residuals")
 ```
 
-![](reg_model_project_files/figure-html/unnamed-chunk-20-1.png)<!-- -->
+![](reg_model_project_files/unnamed-chunk-20-1.png)<!-- -->
 
 One can observe that as we move towards the right hand side, the varibility reduces to some extent. We make a note that this condition is slightly violated. 
 
@@ -586,7 +586,7 @@ One can observe that as we move towards the right hand side, the varibility redu
 ggplot(final_model, aes(x = .resid))+geom_density(fill = "maroon", alpha = 0.5)+labs(title= "Distribution of Residuals", x = "Residuals", density = "Density")
 ```
 
-![](reg_model_project_files/figure-html/unnamed-chunk-21-1.png)<!-- -->
+![](reg_model_project_files/unnamed-chunk-21-1.png)<!-- -->
 
 The distribution of residuals is nearly normal.
 
@@ -597,7 +597,7 @@ The distribution of residuals is nearly normal.
 ggplot(final_model, aes(x = 1:651, y = .resid))+geom_point(col = "maroon")+geom_hline(yintercept = 0, lty = 2)+labs(title = "Plot of residuals by order", x  = "Observations", y = "Residuals")
 ```
 
-![](reg_model_project_files/figure-html/unnamed-chunk-22-1.png)<!-- -->
+![](reg_model_project_files/unnamed-chunk-22-1.png)<!-- -->
 
 The residuals are randomly scattered and there is no patterns visible. So we conclude that the residuals are independent. Moreover this also tells us that there is no time series structure to the data.
 
